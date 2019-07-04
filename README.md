@@ -1,7 +1,10 @@
-# oikaze-developsite-status
-
-```composer log
-yarn install  
-yarn start 
-```
 # RequestChecker
+
+## Desc
+入力したURLのステータスコードを返すツール  
+
+```
+yarn install  
+yarn start  
+yarn build  
+```
