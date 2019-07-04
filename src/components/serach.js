@@ -1,16 +1,24 @@
 import React from "react";
 import { css } from "emotion";
+
+
+
 const form = css({
   display: "flex",
   justifyContent: "space-around"
+})
+const pinkl = css({
+  color: "hotpink"
 })
 const input = css({
   color: "skyblue",
   fontSize: "16px",
   border: "solid 1px",
   backgroundColor: "black",
-  cursor: "pointer"
+  cursor: "pointer",
+  ':hover': pinkl
 });
+
 
 const textarea = css({
   width: "500px",
