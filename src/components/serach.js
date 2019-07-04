@@ -12,6 +12,11 @@ const input = css({
   border: "solid 1px",
   backgroundColor: "black",
   cursor: "pointer"
+});
+
+const textarea = css({
+  width: "500px",
+  height: "250px"
 })
 
 export class Search extends React.Component {
@@ -25,6 +30,9 @@ export class Search extends React.Component {
     return (
       <div>
         <form onSubmit={this.handlesubmit}>
+          <textarea className={textarea }>
+            URLを入力してください。複数登録する場合は改行してください。
+          </textarea>
           <input className={input} onClick={this.handleChange} type="submit" value="Request" />
         </form>
       </div>

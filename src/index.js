@@ -114,7 +114,7 @@ class App extends React.Component {
       <div className={wrap}>
           <header className={head}>
             <div className={head_inner}>
-              <h1 className={head_title}>Request oikaze DevelopSite</h1>
+              <h1 className={head_title}>RequestChecker</h1>
             </div>
           </header>
           <div className={contents}>
@@ -123,12 +123,6 @@ class App extends React.Component {
               <div className={col}>
                 <p>oikaze.org</p>
                 <div>{this.renderList(this.state.data_org)}</div>
-                <div>{this.error(this.state.error)}</div>
-                <div>{this.load(this.state.loading)}</div>
-              </div>
-              <div className={col}>
-                <p>oikaze.biz</p>
-                <div>{this.renderList(this.state.data_biz)}</div>
                 <div>{this.error(this.state.error)}</div>
                 <div>{this.load(this.state.loading)}</div>
               </div>
