@@ -1,11 +1,9 @@
 import React from "react";
 import { css } from "emotion";
-
-const title_h2 = css({
-  color: "hotpink",
-  fontWeight: "bold"
-});
-
+const form = css({
+  display: "flex",
+  justifyContent: "space-around"
+})
 const input = css({
   color: "skyblue",
   fontSize: "16px",
@@ -29,7 +27,7 @@ export class Search extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handlesubmit}>
+        <form onSubmit={this.handlesubmit} className={form}>
           <textarea className={textarea }>
             URLを入力してください。複数登録する場合は改行してください。
           </textarea>
