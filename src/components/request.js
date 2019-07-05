@@ -1,8 +1,6 @@
 import React from "react";
 import { css } from "emotion";
 
-
-
 const form = css({
   display: "flex",
   justifyContent: "space-around"
@@ -19,36 +17,35 @@ const input = css({
   ':hover': pinkl
 });
 
-
 const textarea = css({
   width: "500px",
   height: "250px"
 })
 
-export class Search extends React.Component {
+export class Request extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ""
+      title: "",
+      textarea: "http://github.com"
     };
   }
   render() {
     return (
       <div>
-        <form onSubmit={this.handlesubmit} className={form}>
-          <textarea className={textarea } defaultValue=" URLを入力してください。複数登録する場合は改行してください。"></textarea>
-          <input className={input} onClick={this.handleChange} type="submit" value="Request" />
+        <form onSubmit={this.handlesubmit}>
+          <textarea className={textarea } value={this.state.textarea} onChange={this.handleChange} ></textarea>
+          <input type="submit" value="Request" />
         </form>
       </div>
     );
   }
   handleChange = event => {
-    const title = event.target.value;
-    this.setState({ title: title });
+    const textarea = event.target.value;
+    this.setState({ textarea: textarea });
   };
   handlesubmit = event => {
     event.preventDefault();
-    this.props.search(this.state.title);
-    this.setState({ title: "" });
+    this.props.request(this.state.textarea);
   };
 }

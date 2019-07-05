@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import axios from "axios";
-import { Search } from "./components/serach";
+import { Request } from "./components/request";
 import { css } from "emotion";
 import "./styles.css";
 
@@ -78,8 +78,6 @@ class App extends React.Component {
     super();
     this.state = {
       data:[],
-      data_org: [],
-      data_biz: [],
       error: "",
       loading: ''
     };
@@ -111,39 +109,19 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={wrap}>
-          <header className={head}>
-            <div className={head_inner}>
-              <h1 className={head_title}>RequestChecker</h1>
-            </div>
-          </header>
-          <div className={contents}>
-            <Search search={this.giphyApi} />
-            <div className={page}>
-              <div className={col}>
-                <p>oikaze.org</p>
-                <div>{this.renderList(this.state.data_org)}</div>
-                <div>{this.error(this.state.error)}</div>
-                <div>{this.load(this.state.loading)}</div>
-              </div>
-            </div>
-          </div>
+      <div>
+        <Request request={this.request} />
       </div>
     );
   }
 
-  giphyApi = () => {
-    const url = `./api/data.json`;
+  request = (url) => {
+    console.log(url);
     this.setState({ loading: true });
     axios
         .get(url)
         .then(res => {
           const { data } = res.data;
-          this.setState({data_org: data.org });
-          this.setState({data_biz: data.biz});
-          this.setState({data: data});
-          this.setState({ error: false });
-          this.setState({ loading: false });
         })
         .catch(error => {
           this.setState({ error: false });
