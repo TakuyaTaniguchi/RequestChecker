@@ -36,9 +36,7 @@ export class Search extends React.Component {
     return (
       <div>
         <form onSubmit={this.handlesubmit} className={form}>
-          <textarea className={textarea }>
-            URLを入力してください。複数登録する場合は改行してください。
-          </textarea>
+          <textarea className={textarea } defaultValue=" URLを入力してください。複数登録する場合は改行してください。"></textarea>
           <input className={input} onClick={this.handleChange} type="submit" value="Request" />
         </form>
       </div>
