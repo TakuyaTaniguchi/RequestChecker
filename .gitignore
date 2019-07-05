@@ -14,3 +14,4 @@ build
 /public/api/data.json
 /backend
 
+public/api/hoge.json
