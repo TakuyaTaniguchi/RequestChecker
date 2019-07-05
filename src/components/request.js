@@ -27,7 +27,8 @@ export class Request extends React.Component {
     super(props);
     this.state = {
       title: "",
-      textarea: "http://github.com"
+      textarea: "http://github.com",
+      urlList: "http://github.com"
     };
   }
   render() {
@@ -40,12 +41,17 @@ export class Request extends React.Component {
       </div>
     );
   }
+  splitText = textarea =>{
+    return textarea.split(/\n/);
+  }
   handleChange = event => {
     const textarea = event.target.value;
+    const urlList = this.splitText(textarea);
+    this.setState({ urlList: urlList })
     this.setState({ textarea: textarea });
   };
   handlesubmit = event => {
     event.preventDefault();
-    this.props.request(this.state.textarea);
+    this.props.request(this.state.urlList);
   };
 }
