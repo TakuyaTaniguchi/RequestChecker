@@ -116,12 +116,10 @@ class App extends React.Component {
   }
 
   request = (url) => {
-    console.log(url);
     this.setState({ loading: true });
     axios
-        .get(url)
+        .get('/public/api/genelateJson.php')
         .then(res => {
-          const { data } = res.data;
         })
         .catch(error => {
           this.setState({ error: false });
